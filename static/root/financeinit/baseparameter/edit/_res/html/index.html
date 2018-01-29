@@ -1,0 +1,101 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>公司名称</em></label>
+                    <select class="sele" ng-model="add.companyName">
+                        <option disabled value="">请选择</option>
+                        <option ng-repeat="list in conpany">{{list.companyName}}</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>本位币</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.functionalCurrency">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>会计制度</em></label>
+                    <select class="sele" ng-model="add.accountingSystem">
+                        <option disabled value="">请选择</option>
+                        <option value="SMALLBUSSACCOUNTSYS">小企业会计制度</option>
+                        <option value="BUSSACCOUNTSYS">企业会计制度</option>
+                        <option value="ACCOUNSTANDARDS">小企业会计准则</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>会计期间界定方式</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.defWayAccountPerod">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>会计年度启用时间</em></label>
+                    <input type="text" ng-verify="{}" ng-model="add.accountingYear">
+                </li>
+                <!--<li class="required">-->
+                <!--<label><i><img src="/images/mandatory.png"></i><em>会计期间</em></label>-->
+                <!--<select class="sele" ng-model="add.accountingPeriod" ng-verify="option:0" ng-change="getChange()">-->
+                <!--<option disabled value="">请选择</option>-->
+                <!--<option value="DTWIAP">会计期间界定方式</option>-->
+                <!--<option value="TSDOTAY">会计年度启用日期</option>-->
+                <!--<option value="DOUDAP">账套会计期间启用日期</option>-->
+                <!--<option value="DOAO">账套会计启用日期</option>-->
+                <!--</select>-->
+                <!--</li>-->
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>账套会计期间启用日期</em></label>
+                    <input type="text" ng-model="add.dateDuringPeriod" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image dateDuringPeriod" >
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>账套会计启用日期</em></label>
+                    <input type="text" ng-model="add.accountOpening" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image accountOpening" >
+                </li>
+
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>税号</em></label>
+                    <input type="text" ng-verify="{}"  ng-model="add.ein">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>电话</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="add.phone">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>地址</em></label>
+                    <input type="text" ng-verify="{}"  ng-model="add.address">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>开户银行</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="add.bank">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>银行账号</em></label>
+                    <input type="text" ng-verify="{}"  ng-model="add.account">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>公司规模形式</em></label>
+                    <select class="sele" ng-model="add.scaleShape">
+                        <option disabled value="">请选择</option>
+                        <option value="SMALLBUSS">小规模企业</option>
+                        <option value="GENERALTAXENTER">一般纳税人企业</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>备注</em></label>
+                    <input type="text"  ng-verify="{}"  ng-model="add.remark">
+                </li>
+
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="basicInfoEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

@@ -1,0 +1,75 @@
+<div class="content-tab list">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
+        <select style="border: 0 !important;" class="salc" ng-model="checkedName" ng-init="checkedName='会计科目名称'">
+            <option ng-repeat="item in titles">{{item}}</option>
+        </select>
+        <input type="text" ng-model="accountanName" ng-show="checkedName=='会计科目名称'" ng-change="secter()">
+        <a href="javascript:void(0)" ng-click="search()"><img src="/images/search2.png"></a>
+    </div>
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>代码</span>
+            <span>会计科目名称</span>
+            <span>所属类别</span>
+            <span>余额方向</span>
+        </li>
+        <li class="list-all" ng-repeat="lists in mailLists" style="display: {{lists._delete?'none':'block'}};">
+            <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                <p mod>{{$index+1+num}}</p>
+                <p mod>{{lists.code}}</p>
+                <p mod>{{lists.accountanName}}</p>
+                <p mod>{{lists.belongCategory | listiter}}</p>
+                <p mod>{{lists.balanceDirection | listiter}}</p>
+                <p id="add-larst" ng-click="moreList(lists)">+</p>
+            </div>
+            <div class="subject">
+                <ul class="two-see" ng-repeat="two in twoLists" style="display: {{lists._moreList?'block':'none'}};">
+                    <li class="list-text {{two._selectList?'selectList':''}}" ng-click="selectList2(two)">
+                        <p></p>
+                        <p mod>{{two.code}}</p>
+                        <p mod>{{two.accountanName}}</p>
+                        <p mod>{{two.belongCategory | listiter}}</p>
+                        <p mod>{{two.balanceDirection | listiter}}</p>
+                        <p id="add-larst" ng-click="twoList(two)">+</p>
+                    </li>
+                    <li class="thirds">
+                        <ul class="two-see" ng-repeat="thrid in thridList" style="display: {{two._twoList?'block':'none'}};">
+                            <li class="list-text {{thrid._selectList?'selectList':''}}" ng-click="selectList3(thrid)" >
+                                <p></p>
+                                <p mod>{{thrid.code}}</p>
+                                <p mod>{{thrid.accountanName}}</p>
+                                <p mod>{{thrid.belongCategory | listiter}}</p>
+                                <p mod>{{thrid.balanceDirection | listiter}}</p>
+                                <p></p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

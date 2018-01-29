@@ -1,0 +1,38 @@
+<div class="content-input add" verify-scope="tipStyle: 1">  <!--表单验证插件-->
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>代码</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="data.code">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>名称</em></label>
+                    <input type="text"  ng-verify="{}" ng-model="data.name">
+                </li>
+                <li>
+                    <label></i><em>记账汇率</em></label>
+                    <input type="number" ng-model="data.rate">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>是否本位币</em></label>
+                    <select class="sele" ng-model="data.standardMoney" ng-verify="option:0">
+                        <option disabled value="">请选择</option>
+                        <option value=true>是</option>
+                        <option value=false>否</option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="AddFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

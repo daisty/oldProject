@@ -1,0 +1,52 @@
+<div class="content-tab list">
+    <ul class="table com-table">
+        <li class="list-head">
+            <span></span>
+            <span class="data-id">id</span>
+            <span mod>代码</span>
+            <span mod>会计科目名称</span>
+            <span mod>本年借方累计数</span>
+            <span mod>本年贷方累计数</span>
+            <span mod>方向（借/贷</span>
+            <span mod>期初余额</span>
+            <span mod>本年损益类累计数</span>
+        </li>
+        <li class="list-all" ng-repeat="list in marketserveLists.data" style="display: {{list._delete?'none':'block'}};">
+            <section>
+                <div  class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p>{{$index+1+num}}</p>
+                    <p class="data-id"></p>
+                    <p mod>{{::list.code}}</p>
+                    <p mod>{{::list.accountanName}}</p>
+                    <p mod>{{::list.yearBorrowerNum}}</p>
+                    <p mod>{{::list.yearLenderNum}}</p>
+                    <p mod>{{::list.balanceDirection | opqcover}}</p>
+                    <p mod>{{::list.begingBalance}}</p>
+                    <p mod>{{::list.yearProfitLossNum}}</p>
+                </div>
+            </section>
+        </li>
+     </ul>
+     <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="abili.itemsCount" take="abili.take" activate="abili.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="xxx" ng-click="cancel()">×</div>
+    <div class="del-head">
+        <h5>试算平衡</h5>
+    </div>
+    <div class="del-con">
+        <p class="dip">{{arr[0]}}</p>
+        <p class="dip">且</p>
+        <p class="dip">{{arr[1]}}</p>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

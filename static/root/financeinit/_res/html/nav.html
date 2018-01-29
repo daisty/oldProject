@@ -1,0 +1,47 @@
+
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)" ng-hide="isHide" ng-init="menuCheck()">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass(menuInfo.msg)" ng-show="companybasicinfo" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.financeinit.companybasicinfo.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="currency" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.financeinit.currency.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="withunit" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.financeinit.withunit.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="accountancourse" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.financeinit.accountancourse.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="accountdepartment" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.financeinit.accountdepartment.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="proofwords" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.financeinit.proofwords.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name6}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="usecommonly" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.financeinit.usecommonly.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name7}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="account" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.financeinit.account.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name8}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="baseparameter" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.financeinit.baseparameter.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name9}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="initdateentry" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.financeinit.initdateentry.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name10}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.financeinit.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name11}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.financeinit.versionInfo.version.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name12}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.financeinit.versionInfo.help.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name13}}</a>
+        </li>
+    </ul>
+</div>

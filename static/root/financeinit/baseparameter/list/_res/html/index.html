@@ -1,0 +1,87 @@
+<div class="content-tab list">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
+        <select style="border: 0 !important;" class="salc" ng-model="checkedName" ng-init="checkedName='公司名称'">
+            <option ng-repeat="item in titles">{{item}}</option>
+        </select>
+        <input type="text" ng-model="companyName" ng-show="checkedName=='公司名称'" ng-change="secter()">
+        <a href="javascript:void(0)" ng-click="search()"><img src="/images/search2.png"></a>
+    </div>
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>公司名称</span>
+            <span>本位币</span>
+            <span>会计制度</span>
+            <span mod>会计期间界定方式</span>
+            <span mod>会计年度启用时间</span>
+            <span mod>账套会计期间启用日期</span>
+            <span mod>账套会计启用日期</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in mailLists" style="display: {{lists._delete?'none':'block'}};">
+            <section class="{{lists.status=='CONGEAL'?'congeal':''}}">
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p class="data-id"></p>
+                    <p mod>{{lists.companyName}}</p>
+                    <p mod>{{lists.functionalCurrency}}</p>
+                    <p mod>{{lists.accountingSystem | listiter}}</p>
+                    <p mod>{{lists.defWayAccouunPerod}}</p>
+                    <p mod>{{lists.accountingYear}}</p>
+                    <p mod>{{lists.dateDuringPeriod}}</p>
+                    <p mod>{{lists.apDate}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>税号</span>
+                                <span>电话</span>
+                                <span>地址</span>
+                                <span>开户银行</span>
+                                <span>银行账号</span>
+                                <span>公司规模形式</span>
+                                <span>备注</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.ein}}</span>
+                                <span mod>{{lists.phone}}</span>
+                                <span mod >{{lists.address}}</span>
+                                <span mod>{{lists.bank}}</span>
+                                <span mod>{{lists.account}}</span>
+                                <span mod>{{lists.scaleShape | listiter}}</span>
+                                <span mod>{{lists.remark}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">确定</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>

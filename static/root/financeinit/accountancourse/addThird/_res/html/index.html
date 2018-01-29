@@ -1,0 +1,50 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li style="display:none">
+                    <label><i><img src="/images/mandatory.png"></i><em>所属科目id</em></label>
+                    <input type="text" ng-model="theLevel.belongSubjectsId">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>代码</em></label>
+                    <input type="number" placeholder="必输入数字八位数" ng-verify="{}" ng-model="theLevel.code" pattern="[0-9]*" maxlength="8" minlength="8">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>会计科目名称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="theLevel.accountanName">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>所属类别</em></label>
+                    <select class="sele" ng-model="theLevel.belongCategory">
+                        <option disabled value="">请选择</option>
+                        <option value="ASSETS">资产类</option>
+                        <option value="LIABILITIES">负债类</option>
+                        <option value="COMMON">共同类</option>
+                        <option value="RIGHTSINTERESTS">权益类</option>
+                        <option value="COST">成本类</option>
+                        <option value="PROFITLOSS">损益类</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>余额方向</em></label>
+                    <select class="sele" ng-model="theLevel.balanceDirection">
+                        <option disabled value="">请选择</option>
+                        <option value="BORROW">借</option>
+                        <option value="CREDIT">贷 </option>
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt">
+            <i>
+                <img src="/images/prompt.png">
+            </i>带有
+            <i>
+                <img src="/images/mandatory.png">
+            </i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="thirdAddFun()">提交</button>
+    </p>
+</div>
